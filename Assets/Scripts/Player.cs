@@ -7,8 +7,10 @@ public class Player : MonoBehaviour
     //Data Type (int (whole numbers), float (decimals), bool, string)
     // Every Variable has a name
     //Optional value assigned
-    [SerializeField] //This allows designers 
-    private float _speed = 10f; //must
+    [SerializeField] //This allows designers to access it
+    private float _speed = 10f;
+    [SerializeField]
+    private GameObject _laserPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,19 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        CalculateMovement();
+        //If I hit the space key
+        //spawn gameObject
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(_laserPrefab, transform.position, Quaternion.identity);
+
+        }
+    }
+    //Concole log is Debug.Log("Message");
+    //custom methods are called only when you call them =)
+    void CalculateMovement()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
@@ -34,9 +49,7 @@ public class Player : MonoBehaviour
         Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
         transform.Translate(direction * _speed * Time.deltaTime);
 
-        //If player position on the y is greater than 0
-        //y position = 0
-        // else if position on the y is less thatn -3.8f
+        //Caps on top and bottom
         if (transform.position.y >= 0)
         {
             //This is keeping us restrained to not going above 0 i.e too high.
@@ -49,10 +62,8 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(transform.position.x, -3.8f, 0);
         }
 
-        //if player on the x > 11
-        // x pos = -11 (bring them to the other side)
-        //Else if player on the x is less than -11
-        // x pos =11
+        //Teleport from side to side
+
         if (transform.position.x > 11)
         {
             transform.position = new Vector3(-11, transform.position.y, 0);
