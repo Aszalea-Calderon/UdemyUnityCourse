@@ -48,5 +48,18 @@ public class Player : MonoBehaviour
             //THis keeps it from going too low
             transform.position = new Vector3(transform.position.x, -3.8f, 0);
         }
+
+        //if player on the x > 11
+        // x pos = -11 (bring them to the other side)
+        //Else if player on the x is less than -11
+        // x pos =11
+        if (transform.position.x > 11)
+        {
+            transform.position = new Vector3(-11, transform.position.y, 0);
+        }
+        else if (transform.position.x < -11)
+        {
+            transform.position = new Vector3(11, transform.position.y, 0);
+        }
     }
 }
