@@ -17,7 +17,12 @@ public class Lazor : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.up * _laserSpeed * Time.deltaTime);
-
+        //when leaving if lazor at 7 y 
+        //destory object
+        if (transform.position.y > 7f)
+        {
+            Destroy(gameObject);
+        }
 
     }
 
