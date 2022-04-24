@@ -25,8 +25,28 @@ public class Player : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
         //This is moving the character 5 meters per second. Multipling it by 5 it moves 5 meters per second
         // new Vector3(-1,0,0) * 5 * real time
-        transform.Translate(Vector3.up * verticalInput * _speed * Time.deltaTime);
-        transform.Translate(Vector3.right * horizontalInput * _speed * Time.deltaTime);
 
+        //OG MOVEMENT + float horizontalInput above and float verticalInput
+        // transform.Translate(Vector3.up * verticalInput * _speed * Time.deltaTime);
+        // transform.Translate(Vector3.right * horizontalInput * _speed * Time.deltaTime);
+
+        //ALL IN ONE movement optimal
+        Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
+        transform.Translate(direction * _speed * Time.deltaTime);
+
+        //If player position on the y is greater than 0
+        //y position = 0
+        // else if position on the y is less thatn -3.8f
+        if (transform.position.y >= 0)
+        {
+            //This is keeping us restrained to not going above 0 i.e too high.
+            // We user transform.position.x as we want it to KEEP its current position 
+            transform.position = new Vector3(transform.position.x, 0, 0);
+        } //We use else if if we are using the SAME properity as before i.e transfrom.position.y >=0
+        else if (transform.position.y <= -3.8f)
+        {
+            //THis keeps it from going too low
+            transform.position = new Vector3(transform.position.x, -3.8f, 0);
+        }
     }
 }
