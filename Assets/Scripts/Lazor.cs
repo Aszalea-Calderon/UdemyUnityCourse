@@ -26,6 +26,7 @@ public class Lazor : MonoBehaviour
             Destroy(gameObject);
         }
 
+        //offset the lazor to spawn just above player. 
     }
 
 }
