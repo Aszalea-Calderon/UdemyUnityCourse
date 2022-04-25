@@ -25,10 +25,10 @@ public class Player : MonoBehaviour
     {
         CalculateMovement();
         //If I hit the space key
-        //spawn gameObject
+        //spawn gameObject (with Lazor )
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(_laserPrefab, transform.position, Quaternion.identity);
+            Instantiate(_laserPrefab, transform.position + (_laserPrefab.transform.up * .7f), Quaternion.identity);
 
         }
     }

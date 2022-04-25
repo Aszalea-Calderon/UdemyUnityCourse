@@ -11,7 +11,7 @@ public class Lazor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        //
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class Lazor : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //offset the lazor to spawn just above player. 
+        //offset the lazor to spawn just above player. at .75 
     }
 
 }
