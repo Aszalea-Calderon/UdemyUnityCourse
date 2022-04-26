@@ -29,4 +29,6 @@ public class Lazor : MonoBehaviour
         //offset the lazor to spawn just above player. at .75 
     }
 
+
+
 }
