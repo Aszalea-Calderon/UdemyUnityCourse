@@ -37,6 +37,16 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Hit: " + other.transform.name);
+        // if (transform.name = gameObject.tag){
+
+        // }
+        //if other is player
+        //Destroy us (enemy)
+        // damgage the player
+
+        //if other is laser
+        //lasor (destroy)
+        //destroy us (enemy)
     }
 }
 // move down at 4 meters per second
