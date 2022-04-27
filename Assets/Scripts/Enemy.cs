@@ -29,11 +29,14 @@ public class Enemy : MonoBehaviour
                 int xCount = Random.Range(-10, 10);
                 float yCount = 7.6f;
                 transform.position = new Vector3(xCount, yCount, 0);
-                //create random nums for x and y
-                // set teleport on bottom to use xCount 7.6 and 0 for y
-                //max is 10 x and min is -10
             }
         }
+
+
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Hit: " + other.transform.name);
     }
 }
 // move down at 4 meters per second
