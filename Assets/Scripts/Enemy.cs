@@ -36,10 +36,12 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hit: " + other.transform.name);
-        // if (transform.name = gameObject.tag){
 
-        // }
+        if (other.tag == "Player")
+        {
+            Debug.Log("Hit: " + other.transform.name);
+
+        }
         //if other is player
         //Destroy us (enemy)
         // damgage the player
