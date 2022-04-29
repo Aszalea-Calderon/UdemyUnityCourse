@@ -37,10 +37,16 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
+        // if item hitting enemy is lazor destory enemy
+        if (other.tag == "Lazor")
+        {
+            Destroy(this.gameObject);
+            Destroy(other.gameObject);
+            //DMG player
+        }
         if (other.tag == "Player")
         {
-            Debug.Log("Hit: " + other.transform.name);
-
+            Destroy(this.gameObject);
         }
         //if other is player
         //Destroy us (enemy)
