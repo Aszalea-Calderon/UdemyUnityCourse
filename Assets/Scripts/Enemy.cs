@@ -46,17 +46,14 @@ public class Enemy : MonoBehaviour
         }
         if (other.tag == "Player")
         {
+            Player player = other.transform.GetComponent<Player>();
+
+            if (player != null)
+            {
+                player.Damage();
+            }
+            //This grabs from other files
             Destroy(this.gameObject);
         }
-        //if other is player
-        //Destroy us (enemy)
-        // damgage the player
-
-        //if other is laser
-        //lasor (destroy)
-        //destroy us (enemy)
     }
 }
-// move down at 4 meters per second
-// if at bottom of screen at -5y
-// request at top with a new random x position
